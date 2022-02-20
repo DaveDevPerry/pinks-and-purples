@@ -1,1 +1,3 @@
-# tic-tac-toe
+# Pinks and Purples
+
+![Logo](https://github.com/DaveDevPerry/pinks-and-purples/blob/main/pandplogo.png?raw=true)
