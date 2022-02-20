@@ -1,0 +1,81 @@
+section.page.title-page.page-active {
+	@include flex(space-evenly, center, column);
+	// background-color: $blue;
+	background-image: url('../images/light_bg.png');
+	height: 800px;
+	width: 1280px;
+	position: relative;
+	#game-title {
+		text-align: center;
+		@include flex(center, center, column);
+
+		#pinks {
+			color: $pink;
+			line-height: 15rem;
+		}
+		#and {
+			// font-family: 'Comic Sans MS';
+			font-family: 'Comic Sans MS';
+			font-size: 6rem;
+			line-height: 0rem;
+			color: $dark-grey;
+			font-style: italic;
+		}
+		#purples {
+			color: $purple;
+			line-height: 15rem;
+		}
+	}
+	.title-btns-wrapper {
+		@include flex(center, center, column);
+	}
+	.button#new-game-btn {
+		display: grid;
+		place-content: center;
+		background-image: url('../images/paint-splat_dark_orange.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		// width: 30rem;
+		width: 400px;
+		height: 200px;
+		background-color: transparent;
+		border: transparent;
+		color: $white;
+		font-size: 5rem;
+		// font-family: 'Comic Sans MS';
+	}
+	// .button#leaderboard-btn {
+	// 	display: grid;
+	// 	place-content: center;
+	// 	background-image: url('../images/paint-splat_dark_orange.png');
+	// 	background-size: cover;
+	// 	background-repeat: no-repeat;
+	// 	background-position: center;
+	// 	// width: 30rem;
+	// 	width: 400px;
+	// 	height: 200px;
+	// 	background-color: transparent;
+	// 	border: transparent;
+	// 	color: $black;
+	// }
+	footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		// border: 1px solid green;
+		text-align: center;
+		padding: 0.5rem;
+		p {
+			font-family: 'Comic Sans MS';
+			font-size: 1.6rem;
+			font-weight: 100;
+			a {
+				text-decoration: none;
+				color: $red;
+				font-weight: bold;
+			}
+		}
+	}
+}

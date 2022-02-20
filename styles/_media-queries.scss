@@ -1,0 +1,57 @@
+// @media screen and (max-width: '460px') {
+@media screen and (min-width: 1280px) {
+	// body {
+	// }
+	section {
+		max-width: 1280px !important;
+		max-height: 800px !important;
+		// border: 1rem solid rgb(201, 201, 201);
+		margin: 0 auto;
+	}
+	.title-page {
+		border: 1rem solid rgb(201, 201, 201);
+	}
+	.game-page {
+		max-width: 1280px !important;
+		max-height: 800px !important;
+		// border: 1px solid green;
+		// border: 3px solid $black;
+		// margin: 0 auto;
+		// transform: rotate(90deg);
+	}
+}
+
+// @media screen and (max-width: '600px') {
+// 	html {
+// 		font-size: 25%;
+// 	}
+// 	.restart-btn,
+// 	.end-game-btn,
+// 	.begin-btn {
+// 		width: 150px;
+// 		height: 75px;
+// 	}
+// 	.winning-message#winningMessage .losing-element .restart-btn {
+// 		width: 150px;
+// 		height: 75px;
+// 	}
+// 	.winning-message#winningMessage .losing-element .end-game-btn {
+// 		width: 150px;
+// 		height: 75px;
+// 	}
+// 	.starter-message .begin-btn {
+// 		width: 150px;
+// 		// height: 75px;
+// 		height: 75px;
+// 	}
+
+// 	.winning-message#winningMessage #rematch-btn {
+// 		width: 150px;
+// 		height: 150px;
+// 	}
+// 	section.page.title-page.page-active .button#new-game-btn {
+// 		// background-image: url('../images/m_paint-splat_dark_orange.png');
+// 		width: 200px;
+// 		height: 100px;
+// 	}
+// }

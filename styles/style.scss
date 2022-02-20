@@ -1,0 +1,27 @@
+@mixin flex($justify, $align, $direction) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+}
+
+// @font-face {
+// 	font-family: 'Paint';
+// 	src: url('../fonts/Paintling.ttf');
+// 	font-display: swap;
+// }
+@font-face {
+	font-family: 'Paintbrush';
+	src: url('../fonts/Paintbrush.ttf');
+	font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+@import 'variables';
+@import 'global';
+@import 'title';
+@import 'leaderboard';
+@import 'game';
+@import 'game-board';
+@import 'media-queries';

@@ -1,0 +1,745 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+@font-face {
+  font-family: 'Paintbrush';
+  src: url("../fonts/Paintbrush.ttf");
+  font-display: swap;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 150px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 1.6rem;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffaa00;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpath fill='%23ffb100' d='M486 705.8c-109.3-21.8-223.4-32.2-335.3-19.4C99.5 692.1 49 703 0 719.8V800h843.8c-115.9-33.2-230.8-68.1-347.6-92.2C492.8 707.1 489.4 706.5 486 705.8z'/%3E%3Cpath fill='%23ffb800' d='M1600 0H0v719.8c49-16.8 99.5-27.8 150.7-33.5c111.9-12.7 226-2.4 335.3 19.4c3.4 0.7 6.8 1.4 10.2 2c116.8 24 231.7 59 347.6 92.2H1600V0z'/%3E%3Cpath fill='%23ffbe00' d='M478.4 581c3.2 0.8 6.4 1.7 9.5 2.5c196.2 52.5 388.7 133.5 593.5 176.6c174.2 36.6 349.5 29.2 518.6-10.2V0H0v574.9c52.3-17.6 106.5-27.7 161.1-30.9C268.4 537.4 375.7 554.2 478.4 581z'/%3E%3Cpath fill='%23ffc500' d='M0 0v429.4c55.6-18.4 113.5-27.3 171.4-27.7c102.8-0.8 203.2 22.7 299.3 54.5c3 1 5.9 2 8.9 3c183.6 62 365.7 146.1 562.4 192.1c186.7 43.7 376.3 34.4 557.9-12.6V0H0z'/%3E%3Cpath fill='%23ffcc00' d='M181.8 259.4c98.2 6 191.9 35.2 281.3 72.1c2.8 1.1 5.5 2.3 8.3 3.4c171 71.6 342.7 158.5 531.3 207.7c198.8 51.8 403.4 40.8 597.3-14.8V0H0v283.2C59 263.6 120.6 255.7 181.8 259.4z'/%3E%3Cpath fill='%23ffd914' d='M1600 0H0v136.3c62.3-20.9 127.7-27.5 192.2-19.2c93.6 12.1 180.5 47.7 263.3 89.6c2.6 1.3 5.1 2.6 7.7 3.9c158.4 81.1 319.7 170.9 500.3 223.2c210.5 61 430.8 49 636.6-16.6V0z'/%3E%3Cpath fill='%23ffe529' d='M454.9 86.3C600.7 177 751.6 269.3 924.1 325c208.6 67.4 431.3 60.8 637.9-5.3c12.8-4.1 25.4-8.4 38.1-12.9V0H288.1c56 21.3 108.7 50.6 159.7 82C450.2 83.4 452.5 84.9 454.9 86.3z'/%3E%3Cpath fill='%23ffef3d' d='M1600 0H498c118.1 85.8 243.5 164.5 386.8 216.2c191.8 69.2 400 74.7 595 21.1c40.8-11.2 81.1-25.2 120.3-41.7V0z'/%3E%3Cpath fill='%23fff852' d='M1397.5 154.8c47.2-10.6 93.6-25.3 138.6-43.8c21.7-8.9 43-18.8 63.9-29.5V0H643.4c62.9 41.7 129.7 78.2 202.1 107.4C1020.4 178.1 1214.2 196.1 1397.5 154.8z'/%3E%3Cpath fill='%23ffff66' d='M1315.3 72.4c75.3-12.6 148.9-37.1 216.8-72.4h-723C966.8 71 1144.7 101 1315.3 72.4z'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+section {
+  display: none;
+  max-height: 800px;
+  max-width: 1280px !important;
+}
+
+section.page.page-active {
+  max-height: 800px;
+  max-width: 1280px !important;
+}
+
+h1 {
+  font-family: 'Paintbrush', cursive;
+  color: black;
+  font-size: 18rem;
+  letter-spacing: 5px;
+}
+
+h2 {
+  color: #f1bf0e;
+  font-size: 7rem;
+  letter-spacing: 5px;
+  -webkit-text-stroke: 4px black;
+}
+
+h3 {
+  color: white;
+  font-size: 5.5rem;
+  -webkit-text-stroke: 2px black;
+}
+
+h4 {
+  color: #f1bf0e;
+  font-size: 8rem;
+  letter-spacing: 5px;
+  -webkit-text-stroke: 2px black;
+}
+
+.button {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 2rem 2rem;
+  outline: none;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-family: 'Comic Sans MS';
+}
+
+section.page.title-page.page-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-image: url("../images/light_bg.png");
+  height: 800px;
+  width: 1280px;
+  position: relative;
+}
+
+section.page.title-page.page-active #game-title {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section.page.title-page.page-active #game-title #pinks {
+  color: #f72ef0;
+  line-height: 15rem;
+}
+
+section.page.title-page.page-active #game-title #and {
+  font-family: 'Comic Sans MS';
+  font-size: 6rem;
+  line-height: 0rem;
+  color: #4b4949;
+  font-style: italic;
+}
+
+section.page.title-page.page-active #game-title #purples {
+  color: #8d0ef1;
+  line-height: 15rem;
+}
+
+section.page.title-page.page-active .title-btns-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section.page.title-page.page-active .button#new-game-btn {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  background-image: url("../images/paint-splat_dark_orange.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 400px;
+  height: 200px;
+  background-color: transparent;
+  border: transparent;
+  color: white;
+  font-size: 5rem;
+}
+
+section.page.title-page.page-active footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+section.page.title-page.page-active footer p {
+  font-family: 'Comic Sans MS';
+  font-size: 1.6rem;
+  font-weight: 100;
+}
+
+section.page.title-page.page-active footer p a {
+  text-decoration: none;
+  color: #ed0707;
+  font-weight: bold;
+}
+
+section.page.leaderboard-page.page-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: green;
+}
+
+section.page.game-page.page-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 800px;
+}
+
+section.page.game-page.page-active .player-dash {
+  height: 800px;
+  width: clamp(350px, 450px, 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section.page.game-page.page-active .player-dash .player-wrapper {
+  height: 100%;
+  padding: 1rem;
+  padding-top: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section.page.game-page.page-active .player-dash .player-wrapper .pp-circle {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+}
+
+section.page.game-page.page-active .player-dash .player-wrapper #pp-robyn {
+  border: 1rem solid #6a0eb2;
+  background-image: url("../images/robyn-pp-circle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section.page.game-page.page-active .player-dash .player-wrapper #pp-millie {
+  border: 1rem solid #ce1ac8;
+  background-image: url("../images/millie-pp-circle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section.page.game-page.page-active .player-dash .player-wrapper .trophy-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+section.page.game-page.page-active .player-dash .player-wrapper .trophy-container .trophy-wrapper {
+  margin: 0.2rem;
+}
+
+section.page.game-page.page-active .player-dash .player-wrapper .trophy-container .trophy-wrapper img {
+  height: 4rem;
+}
+
+section.page.game-page.page-active .player-dash .player-stats-wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem;
+}
+
+section.page.game-page.page-active .player-dash .player-stats-wrapper .stats-list {
+  list-style: none;
+  padding-bottom: 5rem;
+}
+
+section.page.game-page.page-active .player-dash .player-stats-wrapper .stats-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+section.page.game-page.page-active #millie-dash {
+  background-color: #f72ef0;
+  border: 1rem solid #ce1ac8;
+}
+
+section.page.game-page.page-active #robyn-dash {
+  background-color: #8d0ef1;
+  border: 1rem solid #6a0eb2;
+}
+
+section.page.game-page.page-active .game-container {
+  background-color: white;
+  background-image: url("../images/light_bg.png");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 800px;
+  border: 1rem solid #c9c9c9;
+}
+
+section.page.game-page.page-active .game-container .board-wrapper {
+  width: 750px;
+  height: 750px;
+  background-image: url("../images/paper_bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.board {
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: (auto)[3];
+      grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 2px solid #4b4949;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+  border-bottom: none;
+}
+
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+.cell.x::before {
+  background-color: #8d0ef1;
+}
+
+.cell.circle::before {
+  background-color: #f72ef0;
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  background-color: #b1b1b1;
+}
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1rem solid #6a0eb2;
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
+  width: calc(var(--mark-size) * 0.8);
+  height: calc(var(--mark-size) * 0.8);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  width: calc(var(--mark-size) * 0.8);
+  height: calc(var(--mark-size) * 0.8);
+}
+
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1rem solid #ce1ac8;
+}
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  width: calc(var(--mark-size) * 0.8);
+  height: calc(var(--mark-size) * 0.8);
+}
+
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  width: calc(var(--mark-size) * 0.8);
+  height: calc(var(--mark-size) * 0.8);
+}
+
+.winning-message#winningMessage {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  font-size: 5rem;
+  z-index: 5;
+  height: 100%;
+}
+
+.winning-message#winningMessage .game-status-msg-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.winning-message#winningMessage .player-msg-wrapper.hide-player {
+  display: none;
+}
+
+.winning-message#winningMessage #rematch-btn {
+  display: none;
+  place-content: center;
+  background-image: url("../images/paint-blob_green.png");
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 4rem;
+  width: 400px;
+  height: 400px;
+  font-family: 'Comic Sans MS';
+  font-weight: bold;
+}
+
+.winning-message#winningMessage #rematch-btn #draw-icon {
+  width: 15rem;
+  height: 15rem;
+  pointer-events: none;
+}
+
+.winning-message#winningMessage #rematch-btn.show {
+  display: -ms-grid;
+  display: grid;
+}
+
+.winning-message#winningMessage .winning-element {
+  display: none;
+}
+
+.winning-message#winningMessage .winning-element.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.winning-message#winningMessage .losing-element {
+  display: none;
+  width: 100%;
+}
+
+.winning-message#winningMessage .losing-element .restart-btn {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  background-image: url("../images/paint-splat_green.png");
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 4rem;
+  width: 300px;
+  height: 150px;
+  font-family: 'Comic Sans MS';
+  font-weight: bold;
+}
+
+.winning-message#winningMessage .losing-element .end-game-btn {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  background-image: url("../images/paint-splat_red.png");
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 300px;
+  height: 150px;
+  font-family: 'Comic Sans MS';
+  font-weight: bold;
+}
+
+.winning-message#winningMessage .losing-element.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.winning-message.show#winningMessage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.starter-message {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 5rem;
+  z-index: 5;
+}
+
+.starter-message .player-msg-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.starter-message .begin-btn {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  background-image: url("../images/paint-splat_dark_orange.png");
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 300px;
+  height: 150px;
+  font-family: 'Comic Sans MS';
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.starter-message .starter-element {
+  display: none;
+}
+
+.starter-message .starter-element.show-starter {
+  display: -ms-grid;
+  display: grid;
+}
+
+.starter-message.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+[data-winning-message-text] {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  section {
+    max-width: 1280px !important;
+    max-height: 800px !important;
+    margin: 0 auto;
+  }
+  .title-page {
+    border: 1rem solid #c9c9c9;
+  }
+  .game-page {
+    max-width: 1280px !important;
+    max-height: 800px !important;
+  }
+}
+/*# sourceMappingURL=style.css.map */
