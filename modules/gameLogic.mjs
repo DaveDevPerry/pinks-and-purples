@@ -90,24 +90,19 @@ const gamesPlayed = sessionDataArray[0].stats.games;
 }
 
 // function show
-
 function showStartGameMessages(starter){
-	console.log(starter);
+	// console.log(starter);
 	document.querySelector('.starter-message').classList.add('show')
 	// const millie
 	const startElements = document.querySelectorAll('.starter-element');
 	startElements.forEach((element)=>{
 		element.classList.remove('show-starter')
-		console.log(element.dataset.player);
+		// console.log(element.dataset.player);
 		if(element.dataset.player === starter){
 			element.classList.add('show-starter')
 		}
 	})
-
-console.log('all starters showing for', starter);
-
-
-
+	// console.log('all starters showing for', starter);
 	const beginBtns = document.querySelectorAll('.begin-btn');
 	beginBtns.forEach((btn)=>{
 		btn.addEventListener('click',()=>{
@@ -115,9 +110,6 @@ console.log('all starters showing for', starter);
 			document.querySelector('.starter-message').classList.remove('show')
 		})
 	})
-
-
-	// document.querySelector('.starter-message')
 }
 
 function handleClick(e) {
@@ -181,20 +173,7 @@ function showEndOfGameMessages(winner){
 			element.classList.add('show');
 		}
 	})
-
 }
-
-// function showEndOfGameMessages(winner,loser){
-// 	const gameStatusElements = document.querySelectorAll('.game-status')
-// 	gameStatusElements.forEach((element)=>{
-// 		element.classList.remove('show')
-// 	})
-// 	const winnerElementsToDisplay = document.querySelectorAll(`.winning-name-${winner}`)
-// 	winnerElementsToDisplay.forEach((element)=>{
-// 		element.classList.add('show');
-// 	})
-// 	// const losingElementsToDisplay = document.querySelectorAll('.losing')
-// }
 
 function addDraw(){
   sessionDataArray.forEach((player)=>{
@@ -224,6 +203,7 @@ function isDraw() {
 function placeMark(cell, currentClass) {
 	cell.classList.add(currentClass);
 }
+
 let whosTurn = '';
 function swapTurns() {
 	circleTurn = !circleTurn;

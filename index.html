@@ -1,218 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="description" content="A two-player game of Pinks and Purples" />
+		<meta name="robots" content="index,follow" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="./favicon/site.webmanifest" />
+		<link rel="stylesheet" href="./styles/style.css" />
+		<title>Pinks & Purples</title>
+	</head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="A two-player game of Pinks and Purples" />
-  <meta name="robots" content="index,follow" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-  <link rel="manifest" href="./favicon/site.webmanifest">
-  <link rel="stylesheet" href="./styles/style.css">
+	<body>
+		<section class="page title-page page-active">
+			<h1 id="game-title">
+				<span id="pinks">Pinks</span>
+				<span id="and">and</span>
+				<span id="purples">Purples</span>
+			</h1>
+			<div class="title-btns-wrapper">
+				<div class="button" data-page-name="game-page" id="new-game-btn">
+					PLAY
+				</div>
+				<!-- <div class="button" data-page-name="leaderboard-page" id="leaderboard-btn">Leaderboard</div> -->
+			</div>
+			<footer>
+				<p>
+					designed & developed by
+					<a href="https://daveperry.tech" target="_blank">daveperry.tech</a>
+					| Copyright 2021 &copy
+				</p>
+			</footer>
+		</section>
 
-  <title>Pinks & Purples</title>
-</head>
+		<section class="page leaderboard-page">
+			<h1 id="leaderboard-title">Leaderboard</h1>
+			<div class="button" data-page-name="title-page" id="to-title-screen-btn">
+				Back
+			</div>
+		</section>
 
-<body>
+		<section class="page game-page">
+			<div class="player-dash" id="millie-dash">
+				<div class="player-wrapper">
+					<div class="pp-circle" id="pp-millie"></div>
+					<h2 class="dash-name">millie</h2>
+					<div class="trophy-container">
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="millie-star"
+							/>
+						</div>
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="millie-star"
+							/>
+						</div>
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="millie-star"
+							/>
+						</div>
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="millie-star"
+							/>
+						</div>
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="millie-star"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="player-stats-wrapper">
+					<ul class="stats-list" id="millie-stats">
+						<li>
+							<h3>WIN:</h3>
+							<h3 class="stat-win" id="millie-stat-win">02</h3>
+						</li>
+						<li>
+							<h3>DRAW:</h3>
+							<h3 class="stat-draw" id="millie-stat-draw">02</h3>
+						</li>
+						<li>
+							<h3>PLAYED:</h3>
+							<h3 class="stat-played" id="millie-stat-played">44</h3>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="game-container">
+				<div class="board-wrapper">
+					<div class="board circle" id="board">
+						<div class="cell" data-cell></div>
+						<div class="cell" data-cell></div>
+						<div class="cell" data-cell></div>
+						<div class="cell" data-cell></div>
+						<div class="cell" data-cell></div>
+						<div class="cell" data-cell></div>
+						<div class="cell" data-cell></div>
+						<div class="cell" data-cell></div>
+						<div class="cell" data-cell></div>
+					</div>
+					<div class="winning-message" id="winningMessage">
+						<div class="game-status-msg-wrapper" id="millie-msg-wrapper">
+							<h4
+								class="status-element winning-element"
+								data-game-outcome="draw"
+							>
+								DRAW
+							</h4>
+							<h4
+								class="status-element winning-element"
+								data-game-outcome="millie"
+							>
+								YOU WIN
+							</h4>
+							<div
+								class="status-element losing-element"
+								data-game-outcome="robyn"
+							>
+								<div class="restart-btn" id="restartBtn">PLAY</div>
+								<div
+									class="button end-button end-game-btn"
+									data-page-name="title-page"
+									id="end-game-btn"
+								>
+									QUIT
+								</div>
+							</div>
+						</div>
+						<div data-winning-message-text></div>
+						<div
+							class="status-element restart-btn"
+							id="rematch-btn"
+							data-game-outcome="draw"
+						>
+							<img
+								src="./images/draw-icon.png"
+								alt="draw icon"
+								id="draw-icon"
+							/>
+						</div>
+						<div class="game-status-msg-wrapper" id="robyn-msg-wrapper">
+							<h4
+								class="status-element winning-element"
+								data-game-outcome="draw"
+							>
+								DRAW
+							</h4>
+							<h4
+								class="status-element winning-element"
+								data-game-outcome="robyn"
+							>
+								YOU WIN
+							</h4>
+							<div
+								class="status-element losing-element"
+								data-game-outcome="millie"
+							>
+								<div class="restart-btn" id="restartBtn">PLAY</div>
+								<div
+									class="button end-button end-game-btn"
+									data-page-name="title-page"
+									id="end-game-btn"
+								>
+									QUIT
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="starter-message" id="starterMessage">
+						<div class="player-msg-wrapper" id="millie-msg-wrapper">
+							<h4
+								class="starter-name starter-element"
+								data-player="robyn"
+								id="starter-name"
+							>
+								Robyn starts
+							</h4>
+							<div
+								class="begin-btn starter-element"
+								data-player="millie"
+								id="millie-begin-btn"
+							>
+								START
+							</div>
+						</div>
+						<div class="player-msg-wrapper" id="robyn-msg-wrapper">
+							<h4 class="starter-name starter-element" data-player="millie">
+								Millie starts
+							</h4>
+							<div
+								class="begin-btn starter-element"
+								data-player="robyn"
+								id="robyn-begin-btn"
+							>
+								START
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="player-dash" id="robyn-dash">
+				<div class="player-wrapper">
+					<div class="pp-circle" id="pp-robyn"></div>
+					<h2 class="dash-name">robyn</h2>
+					<div class="trophy-container">
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="robyn-star"
+							/>
+						</div>
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="robyn-star"
+							/>
+						</div>
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="robyn-star"
+							/>
+						</div>
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="robyn-star"
+							/>
+						</div>
+						<div class="trophy-wrapper">
+							<img
+								src="./images/star_off.png"
+								alt="star off"
+								class="robyn-star"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="player-stats-wrapper">
+					<ul class="stats-list">
+						<li>
+							<h3>WIN:</h3>
+							<h3 class="stat-win" id="robyn-stat-win">02</h3>
+						</li>
+						<li>
+							<h3>DRAW:</h3>
+							<h3 class="stat-draw" id="robyn-stat-draw">02</h3>
+						</li>
+						<li>
+							<h3>PLAYED:</h3>
+							<h3 class="stat-played" id="robyn-stat-played">44</h3>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
 
-<section class="page title-page page-active">
-<h1 id="game-title">
-  <span id="pinks">Pinks</span>
-  <span id="and">and</span>
-  <span id="purples">Purples</span>
-</h1>
-
-
-<div class="title-btns-wrapper">
-  <div class="button" data-page-name="game-page" id="new-game-btn">
-    PLAY</div>
-  <!-- <div class="button" data-page-name="leaderboard-page" id="leaderboard-btn">Leaderboard</div> -->
-</div>
-
-<footer>
-  <p>
-  designed & developed by 
-  <a href="https://daveperry.tech" target="_blank">daveperry.tech</a>
-  | Copyright 2021 &copy
-</p>
-</footer>
-
-</section>
-
-<section class="page leaderboard-page">
-  <h1 id="leaderboard-title">
-    Leaderboard
-  </h1>
-  <div class="button" data-page-name="title-page" id="to-title-screen-btn">Back</div>
-</section>
-
-<section class="page game-page">
-
-<div class="player-dash" id="millie-dash">
-  
-  <div class="player-wrapper">
-    <div class="pp-circle" id="pp-millie"></div>
-    <h2 class="dash-name">millie</h2>
-    <div class="trophy-container">
-      <div class="trophy-wrapper">
-        <img src="./images/star_off.png" alt="star off" class="millie-star">
-      </div>
-      <div class="trophy-wrapper">
-        <img src="./images/star_off.png" alt="star off" class="millie-star">
-      </div>
-      <div class="trophy-wrapper">
-        <img src="./images/star_off.png" alt="star off" class="millie-star">
-      </div>
-      <div class="trophy-wrapper">
-        <img src="./images/star_off.png" alt="star off" class="millie-star">
-      </div>
-      <div class="trophy-wrapper">
-        <img src="./images/star_off.png" alt="star off" class="millie-star">
-      </div>
-    </div>
-  </div>
-  
-  <div class="player-stats-wrapper">
-    <ul class="stats-list" id="millie-stats">
-      <li><h3>WIN: </h3><h3 class="stat-win" id="millie-stat-win">02</h3></li>
-      <li><h3>DRAW: </h3><h3 class="stat-draw"id="millie-stat-draw">02</h3></li>
-      <li><h3>PLAYED: </h3><h3 class="stat-played"id="millie-stat-played">44</h3></li>
-    </ul>
-  </div>
-
-</div>
-
-<div class="game-container">
-
-  <div class="board-wrapper">
-
-    <!-- <img src="./images/paper_bg.png" id="game-bg"> -->
-
-    <div class="board circle" id="board">
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-    </div>
-<!--   
-    <div class="winning-message" id="winningMessage">
-      <div data-winning-message-text></div>
-      <div id="restartBtn">PLAY</div>
-      <div class="end-button" data-page-name="title-page" id="end-game-btn">QUIT</div>
-    </div> -->
-
-    <div class="winning-message" id="winningMessage">
-
-      <div class="game-status-msg-wrapper" id="millie-msg-wrapper">
-        <h4 class="status-element winning-element" data-game-outcome="draw">DRAW</h4>
-        <h4 class="status-element winning-element" data-game-outcome="millie">YOU WIN</h4>
-        <div class="status-element losing-element" data-game-outcome="robyn">
-          <div class="restart-btn" id="restartBtn">PLAY</div>
-          <div class="button end-button end-game-btn" data-page-name="title-page" id="end-game-btn">QUIT</div>
-        </div>
-      </div>
-
-      <div data-winning-message-text></div>
-      <div class="status-element restart-btn" id="rematch-btn" data-game-outcome="draw">
-        <img src="./images/draw-icon.png" alt="draw icon" id="draw-icon">
-      </div>
-      
-      <div class="game-status-msg-wrapper" id="robyn-msg-wrapper">
-        <h4 class="status-element winning-element " data-game-outcome="draw">DRAW</h4>
-        <h4 class="status-element winning-element " data-game-outcome="robyn">YOU WIN</h4>
-        <div class="status-element losing-element"  data-game-outcome="millie">
-          <div class="restart-btn" id="restartBtn">PLAY</div>
-          <div class="button end-button end-game-btn" data-page-name="title-page" id="end-game-btn">QUIT</div>
-        </div>
-      </div>
-      
-    </div>
-
-
-
-
-
-
-
-
-    <div class="starter-message" id="starterMessage">
-
-      <div class="player-msg-wrapper" id="millie-msg-wrapper">
-        <h4 class="starter-name starter-element " data-player="robyn" id="starter-name">Robyn starts</h4>
-        <div class="begin-btn starter-element " data-player="millie"  id="millie-begin-btn">START</div>
-      </div>
-      
-      <div class="player-msg-wrapper" id="robyn-msg-wrapper">
-        <h4 class="starter-name starter-element"  data-player="millie" >Millie starts</h4>
-        <div class="begin-btn starter-element " data-player="robyn"  id="robyn-begin-btn">START</div>
-      </div>
-      
-    </div>
-
-  </div>
-
-  
-
-</div>
-
-<div class="player-dash" id="robyn-dash">
-
-<div class="player-wrapper">
-  <div class="pp-circle" id="pp-robyn"></div>
-  <h2 class="dash-name">robyn</h2>
-  <div class="trophy-container">
-    <div class="trophy-wrapper">
-      <img src="./images/star_off.png" alt="star off" class="robyn-star">
-    </div>
-    <div class="trophy-wrapper">
-      <img src="./images/star_off.png" alt="star off" class="robyn-star">
-    </div>
-    <div class="trophy-wrapper">
-      <img src="./images/star_off.png" alt="star off" class="robyn-star">
-    </div>
-    <div class="trophy-wrapper">
-      <img src="./images/star_off.png" alt="star off" class="robyn-star">
-    </div>
-    <div class="trophy-wrapper">
-      <img src="./images/star_off.png" alt="star off" class="robyn-star">
-    </div>
-  </div>
-</div>
-
-<div class="player-stats-wrapper">
-  <ul class="stats-list">
-    <li><h3>WIN: </h3><h3 class="stat-win"id="robyn-stat-win">02</h3></li>
-    <li><h3>DRAW: </h3><h3 class="stat-draw"id="robyn-stat-draw">02</h3></li>
-    <li><h3>PLAYED: </h3><h3 class="stat-played"id="robyn-stat-played">44</h3></li>
-  </ul>
-</div>
-
-</div>
-
-
-
-
-
- 
-
-
-</section>
-
-
-  
-
-
-
-
-  <script type="module" src="./app.js"></script>
-</body>
-
+		<script type="module" src="./app.js"></script>
+	</body>
 </html>

@@ -21,37 +21,151 @@
 	}
 }
 
-// @media screen and (max-width: '600px') {
-// 	html {
-// 		font-size: 25%;
-// 	}
-// 	.restart-btn,
-// 	.end-game-btn,
-// 	.begin-btn {
-// 		width: 150px;
-// 		height: 75px;
-// 	}
-// 	.winning-message#winningMessage .losing-element .restart-btn {
-// 		width: 150px;
-// 		height: 75px;
-// 	}
-// 	.winning-message#winningMessage .losing-element .end-game-btn {
-// 		width: 150px;
-// 		height: 75px;
-// 	}
-// 	.starter-message .begin-btn {
-// 		width: 150px;
-// 		// height: 75px;
-// 		height: 75px;
-// 	}
+@media screen and (max-width: 1279px) {
+	:root {
+		--cell-size: calc(100vw / 5.5);
+		// --mark-size: calc(var(--cell-size) * 0.9);
+	}
+	html {
+		font-size: 62.5%;
+	}
+	body {
+		display: block;
+	}
+	section.page.page-active {
+		height: 100%;
+		width: 100%;
+	}
+	section.page.title-page.page-active {
+		// height: auto;
+		width: auto;
+		// display: unset;
+		footer {
+			position: fixed;
+		}
+	}
+	section.page.game-page.page-active {
+		@include flex(space-between, center, column);
+		height: 100%;
+		.player-dash {
+			height: 25rem;
+			width: 100%;
+			@include flex(space-between, center, row);
+			.player-wrapper {
+				position: relative;
+				padding: 2rem;
+				display: flex;
+				justify-content: flex-end;
+				.pp-circle {
+					position: absolute;
+					top: 0;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
 
-// 	.winning-message#winningMessage #rematch-btn {
-// 		width: 150px;
-// 		height: 150px;
-// 	}
-// 	section.page.title-page.page-active .button#new-game-btn {
-// 		// background-image: url('../images/m_paint-splat_dark_orange.png');
-// 		width: 200px;
-// 		height: 100px;
-// 	}
-// }
+				.trophy-container {
+					.trophy-wrapper {
+						img {
+							height: 6rem;
+						}
+					}
+				}
+			}
+			.player-stats-wrapper {
+				display: unset;
+				flex-grow: 1;
+				padding: 2rem;
+				.stats-list {
+					list-style: none;
+					padding-bottom: 0;
+				}
+			}
+		}
+		#millie-dash {
+			transform: rotate(180deg);
+			border: none;
+			border-top: 1rem solid $dark-pink;
+		}
+		#robyn-dash {
+			border: none;
+			border-top: 1rem solid $dark-purple;
+		}
+		.game-container {
+			// height: auto;
+			flex-grow: 1;
+			padding: 2rem;
+			.board-wrapper {
+				width: 85vw;
+				height: 85vw;
+			}
+		}
+	}
+	.winning-message#winningMessage {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		.game-status-msg-wrapper {
+			height: 25rem;
+		}
+		#millie-msg-wrapper {
+			transform: rotate(180deg);
+		}
+	}
+	.starter-message {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		.player-msg-wrapper {
+			height: 25rem;
+		}
+		#millie-msg-wrapper {
+			transform: rotate(180deg);
+		}
+	}
+	.starter-message.show {
+		@include flex(space-between, center, column);
+	}
+}
+
+@media screen and (max-width: '600px') {
+	html {
+		font-size: 25%;
+	}
+	.restart-btn,
+	.end-game-btn,
+	.begin-btn {
+		width: 150px;
+		height: 75px;
+	}
+	.winning-message#winningMessage .losing-element .restart-btn {
+		width: 150px;
+		height: 75px;
+	}
+	.winning-message#winningMessage .losing-element .end-game-btn {
+		width: 150px;
+		height: 75px;
+	}
+	.starter-message .begin-btn {
+		width: 150px;
+		// height: 75px;
+		height: 75px;
+	}
+
+	.winning-message#winningMessage #rematch-btn {
+		width: 150px;
+		height: 150px;
+	}
+	section.page.title-page.page-active .button#new-game-btn {
+		// background-image: url('../images/m_paint-splat_dark_orange.png');
+		width: 200px;
+		height: 100px;
+	}
+}

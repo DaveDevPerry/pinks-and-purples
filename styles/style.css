@@ -742,4 +742,189 @@ section.page.game-page.page-active .game-container .board-wrapper {
     max-height: 800px !important;
   }
 }
+
+@media screen and (max-width: 1279px) {
+  :root {
+    --cell-size: calc(100vw / 5.5);
+  }
+  html {
+    font-size: 62.5%;
+  }
+  body {
+    display: block;
+  }
+  section.page.page-active {
+    height: 100%;
+    width: 100%;
+  }
+  section.page.title-page.page-active {
+    width: auto;
+  }
+  section.page.title-page.page-active footer {
+    position: fixed;
+  }
+  section.page.game-page.page-active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+  }
+  section.page.game-page.page-active .player-dash {
+    height: 25rem;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  section.page.game-page.page-active .player-dash .player-wrapper {
+    position: relative;
+    padding: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  section.page.game-page.page-active .player-dash .player-wrapper .pp-circle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  section.page.game-page.page-active .player-dash .player-wrapper .trophy-container .trophy-wrapper img {
+    height: 6rem;
+  }
+  section.page.game-page.page-active .player-dash .player-stats-wrapper {
+    display: unset;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    padding: 2rem;
+  }
+  section.page.game-page.page-active .player-dash .player-stats-wrapper .stats-list {
+    list-style: none;
+    padding-bottom: 0;
+  }
+  section.page.game-page.page-active #millie-dash {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    border: none;
+    border-top: 1rem solid #ce1ac8;
+  }
+  section.page.game-page.page-active #robyn-dash {
+    border: none;
+    border-top: 1rem solid #6a0eb2;
+  }
+  section.page.game-page.page-active .game-container {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    padding: 2rem;
+  }
+  section.page.game-page.page-active .game-container .board-wrapper {
+    width: 85vw;
+    height: 85vw;
+  }
+  .winning-message#winningMessage {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .winning-message#winningMessage .game-status-msg-wrapper {
+    height: 25rem;
+  }
+  .winning-message#winningMessage #millie-msg-wrapper {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  .starter-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .starter-message .player-msg-wrapper {
+    height: 25rem;
+  }
+  .starter-message #millie-msg-wrapper {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  .starter-message.show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 25%;
+  }
+  .restart-btn,
+  .end-game-btn,
+  .begin-btn {
+    width: 150px;
+    height: 75px;
+  }
+  .winning-message#winningMessage .losing-element .restart-btn {
+    width: 150px;
+    height: 75px;
+  }
+  .winning-message#winningMessage .losing-element .end-game-btn {
+    width: 150px;
+    height: 75px;
+  }
+  .starter-message .begin-btn {
+    width: 150px;
+    height: 75px;
+  }
+  .winning-message#winningMessage #rematch-btn {
+    width: 150px;
+    height: 150px;
+  }
+  section.page.title-page.page-active .button#new-game-btn {
+    width: 200px;
+    height: 100px;
+  }
+}
 /*# sourceMappingURL=style.css.map */

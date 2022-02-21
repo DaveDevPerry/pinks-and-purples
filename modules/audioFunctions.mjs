@@ -14,11 +14,3 @@ export function drawAudio(){
   const audio = new Audio('../audio/draw-clapping.mp3');
   audio.play();
 }
-// export function newRecordAudio(){
-//   const audio = new Audio('../audio/level-complete.mp3');
-//   audio.play();
-// }
-// export function endGameAudio(){
-//   const audio = new Audio('../audio/end-game-btn.mp3');
-//   audio.play();
-// }
