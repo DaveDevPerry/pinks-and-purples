@@ -38,15 +38,17 @@ body {
   place-content: center;
 }
 
+.app-container {
+  width: 1280px !important;
+}
+
 section {
   display: none;
   max-height: 800px;
-  max-width: 1280px !important;
 }
 
 section.page.page-active {
   max-height: 800px;
-  max-width: 1280px !important;
 }
 
 h1 {
@@ -58,20 +60,20 @@ h1 {
 
 h2 {
   color: #f1bf0e;
-  font-size: 7rem;
-  letter-spacing: 5px;
-  -webkit-text-stroke: 4px black;
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  -webkit-text-stroke: 2px black;
 }
 
 h3 {
   color: white;
-  font-size: 5.5rem;
+  font-size: 4rem;
   -webkit-text-stroke: 2px black;
 }
 
 h4 {
   color: #f1bf0e;
-  font-size: 8rem;
+  font-size: 5rem;
   letter-spacing: 5px;
   -webkit-text-stroke: 2px black;
 }
@@ -84,6 +86,14 @@ h4 {
   padding: 1rem 2rem;
   text-align: center;
   font-family: 'Comic Sans MS';
+}
+
+.stat-played,
+.stat-draw,
+.stat-win {
+  width: 45px;
+  text-align: right;
+  color: #ffaa00;
 }
 
 section.page.title-page.page-active {
@@ -273,14 +283,14 @@ section.page.game-page.page-active .player-dash .player-wrapper .pp-circle {
 
 section.page.game-page.page-active .player-dash .player-wrapper #pp-robyn {
   border: 1rem solid #6a0eb2;
-  background-image: url("../images/robyn-pp-circle.png");
+  background-image: url("../images/profile2.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 section.page.game-page.page-active .player-dash .player-wrapper #pp-millie {
   border: 1rem solid #ce1ac8;
-  background-image: url("../images/millie-pp-circle.png");
+  background-image: url("../images/profile1.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -380,9 +390,10 @@ section.page.game-page.page-active .game-container .board-wrapper {
   width: 750px;
   height: 750px;
   background-image: url("../images/paper_bg.png");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   position: relative;
+  background-position: center;
 }
 
 .board {
@@ -611,7 +622,7 @@ section.page.game-page.page-active .game-container .board-wrapper {
   display: -ms-grid;
   display: grid;
   place-content: center;
-  background-image: url("../images/paint-splat_red.png");
+  background-image: url("../images/m_paint-splat_red.png");
   color: white;
   background-size: cover;
   background-repeat: no-repeat;
@@ -728,9 +739,12 @@ section.page.game-page.page-active .game-container .board-wrapper {
   display: none;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 801px) {
+  body {
+    -webkit-transform: scale(0.63);
+            transform: scale(0.63);
+  }
   section {
-    max-width: 1280px !important;
     max-height: 800px !important;
     margin: 0 auto;
   }
@@ -738,12 +752,24 @@ section.page.game-page.page-active .game-container .board-wrapper {
     border: 1rem solid #c9c9c9;
   }
   .game-page {
-    max-width: 1280px !important;
     max-height: 800px !important;
   }
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (min-width: 1280px) {
+  section {
+    max-height: 800px !important;
+    margin: 0 auto;
+  }
+  .title-page {
+    border: 1rem solid #c9c9c9;
+  }
+  .game-page {
+    max-height: 800px !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
   :root {
     --cell-size: calc(100vw / 5.5);
   }
@@ -752,6 +778,8 @@ section.page.game-page.page-active .game-container .board-wrapper {
   }
   body {
     display: block;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   section.page.page-active {
     height: 100%;
@@ -844,8 +872,8 @@ section.page.game-page.page-active .game-container .board-wrapper {
     padding: 2rem;
   }
   section.page.game-page.page-active .game-container .board-wrapper {
-    width: 85vw;
-    height: 85vw;
+    width: clamp(280px, 560px, 560px);
+    height: clamp(280px, 560px, 560px);
   }
   .winning-message#winningMessage {
     display: none;
@@ -894,9 +922,13 @@ section.page.game-page.page-active .game-container .board-wrapper {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .cell {
+    width: clamp(50px, var(--cell-size), 120px);
+    height: clamp(50px, var(--cell-size), 120px);
+  }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   html {
     font-size: 25%;
   }

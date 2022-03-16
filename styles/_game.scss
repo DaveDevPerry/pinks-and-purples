@@ -29,13 +29,13 @@ section.page.game-page.page-active {
 			}
 			#pp-robyn {
 				border: 1rem solid $dark-purple;
-				background-image: url('../images/robyn-pp-circle.png');
+				background-image: url('../images/profile2.png');
 				background-repeat: no-repeat;
 				background-size: cover;
 			}
 			#pp-millie {
 				border: 1rem solid $dark-pink;
-				background-image: url('../images/millie-pp-circle.png');
+				background-image: url('../images/profile1.png');
 				background-repeat: no-repeat;
 				background-size: cover;
 			}
@@ -96,9 +96,10 @@ section.page.game-page.page-active {
 			width: 750px;
 			height: 750px;
 			background-image: url('../images/paper_bg.png');
-			background-size: cover;
+			background-size: contain;
 			background-repeat: no-repeat;
 			position: relative;
+			background-position: center;
 
 			// width: 80vw;
 			// height: 80vw;
